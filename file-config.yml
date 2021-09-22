@@ -1,0 +1,105 @@
+Last login: Tue Sep 21 18:58:34 on ttys000
+
+The default interactive shell is now zsh.
+To update your account to use zsh, please run `chsh -s /bin/zsh`.
+For more details, please visit https://support.apple.com/kb/HT208050.
+Brandons-MacBook-Pro:~ B2wic$ ssh azureuser@20.106.89.67
+Welcome to Ubuntu 18.04.5 LTS (GNU/Linux 5.4.0-1058-azure x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+  System information as of Wed Sep 22 04:07:42 UTC 2021
+
+  System load:  0.0                Processes:              112
+  Usage of /:   11.4% of 28.90GB   Users logged in:        0
+  Memory usage: 31%                IP address for eth0:    10.0.0.4
+  Swap usage:   0%                 IP address for docker0: 172.17.0.1
+
+ * Super-optimized for small spaces - read how we shrank the memory
+   footprint of MicroK8s to make it the smallest full K8s around.
+
+   https://ubuntu.com/blog/microk8s-memory-optimisation
+
+23 updates can be applied immediately.
+3 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '20.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+Last login: Wed Sep 22 01:58:38 2021 from 24.7.72.135
+azureuser@Jump-Box-Provisioner:~$ sudo docker start relaxed_ptolemy
+relaxed_ptolemy
+azureuser@Jump-Box-Provisioner:~$ sudo docker attach relaxed_ptolemy
+root@0ba8b8f85ccc:/etc/ansible# ls
+ansible.cfg         filebeat-config.yml    hosts
+ansible_config.yml  filebeat-playbook.yml  my-playbook.yml
+root@0ba8b8f85ccc:/etc/ansible# nano ansible_config.yml
+
+
+
+
+
+
+
+
+
+
+
+root@0ba8b8f85ccc:/etc/ansible# nano filebeat-config.yml
+
+  GNU nano 4.8                  filebeat-config.yml                             
+######################## Filebeat Configuration ############################
+# This file is a full configuration example documenting all non-deprecated
+# options in comments. For a shorter configuration example, that contains only
+# the most common options, please see filebeat.yml in the same directory.
+#
+# You can find the full configuration reference here:
+# https://www.elastic.co/guide/en/beats/filebeat/index.html
+filebeat.config.modules:
+  path: ${path.config}/modules.d/*.yml
+
+#==========================  Modules configuration =============================
+filebeat.modules:
+
+#-------------------------------- System Module --------------------------------
+#- module: system
+  # Syslog
+  #syslog:
+    #enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
+    # Input configuration (advanced). Any input configuration option
+    # can be added under this section.
+    #input:
+
+  # Authorization logs
+  #auth:
+    #enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
+    # Input configuration (advanced). Any input configuration option
+    # can be added under this section.
+    #input:
+
+#-------------------------------- Apache Module --------------------------------
+#- module: apache
+  # Access logs
+  #access:
+    #enabled: true
+
+    # Set custom paths for the log files. If left empty,
+    # Filebeat will choose the paths depending on your OS.
+    #var.paths:
+
+^G Get Help  ^O Write Out ^W Where Is  ^K Cut Text  ^J Justify   ^C Cur Pos
+^X Exit      ^R Read File ^\ Replace   ^U Paste Text^T To Spell  ^_ Go To Line
